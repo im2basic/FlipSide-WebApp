@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #050508;
+    color: #ffffff;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: rgba(0, 212, 255, 0.3);
+    color: #ffffff;
+  }
+}
+
+@layer components {
+  .gradient-duality {
+    background: linear-gradient(135deg, #3B82F6, #FF2D55);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-cyber {
+    background: linear-gradient(135deg, #00D4FF, #7B61FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-chrome {
+    background: linear-gradient(
+      135deg,
+      #808080 0%,
+      #C0C0C0 20%,
+      #E8E8E8 40%,
+      #C0C0C0 60%,
+      #A0A0A0 80%,
+      #C0C0C0 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-shimmer {
+    background: linear-gradient(
+      90deg,
+      #808080 0%,
+      #C0C0C0 25%,
+      #FFFFFF 50%,
+      #C0C0C0 75%,
+      #808080 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  .border-chrome {
+    border: 1px solid transparent;
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    background-image:
+      linear-gradient(#0F1428, #0F1428),
+      linear-gradient(135deg, #808080, #C0C0C0, #E8E8E8, #C0C0C0, #808080);
+  }
+
+  .border-duality {
+    border: 1px solid transparent;
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    background-image:
+      linear-gradient(#0F1428, #0F1428),
+      linear-gradient(135deg, #3B82F6, #FF2D55);
+  }
+
+  .bg-duality-gradient {
+    background: linear-gradient(135deg, #3B82F6, #FF2D55);
+  }
+
+  .bg-cyber-gradient {
+    background: linear-gradient(135deg, #00D4FF, #7B61FF);
+  }
+
+  .chrome-line {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      #808080 15%,
+      #C0C0C0 30%,
+      #E8E8E8 50%,
+      #C0C0C0 70%,
+      #808080 85%,
+      transparent 100%
+    );
+  }
+
+  .card-glow:hover {
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.15), 0 0 60px rgba(0, 212, 255, 0.05);
+  }
+
+  .card-glow-premium {
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.2), 0 0 60px rgba(123, 97, 255, 0.1);
+  }
+
+  .card-glow-premium:hover {
+    box-shadow: 0 0 40px rgba(0, 212, 255, 0.3), 0 0 80px rgba(123, 97, 255, 0.15);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

@@ -1,12 +1,12 @@
 import { useRef, useState } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
-import GradientText from './GradientText'
+import SectionHeading from './SectionHeading'
 
 const faqs = [
   {
     question: 'How does FlipSide fact-check in real-time?',
     answer:
-      'FlipSide uses a three-stage AI pipeline. First, live audio is transcribed using Deepgram with speaker diarization. Second, our claim detection model (powered by Groq) identifies verifiable factual statements. Third, each claim is checked against current web sources via Gemini, returning a verdict with citations -- all within seconds.',
+      'FlipSide uses a three-stage AI pipeline. First, live audio is transcribed using Deepgram with speaker diarization. Second, our claim detection model (powered by Groq) identifies verifiable factual statements. Third, each claim is checked against current web sources via Gemini, returning a verdict with citations — all within seconds.',
   },
   {
     question: 'Do I need an internet connection?',
@@ -54,36 +54,38 @@ function FAQItem({
   return (
     <motion.div
       ref={ref}
-      className="border-chrome rounded-xl overflow-hidden"
+      className={`rounded-xl overflow-hidden transition-all duration-500 ${
+        isOpen ? 'border-holo' : 'border-chrome'
+      }`}
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.4, delay: index * 0.08 }}
+      transition={{ duration: 0.5, delay: index * 0.08 }}
     >
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-flipside-surface-secondary/50 transition-colors duration-200"
+        className="w-full flex items-center justify-between gap-4 px-5 md:px-6 py-5 text-left hover:bg-white/[0.03] transition-colors duration-200"
         aria-expanded={isOpen}
       >
-        <span className="text-white font-semibold text-sm md:text-base pr-4">
-          {question}
+        <span className="flex items-center gap-4">
+          <span
+            className={`font-mono text-[11px] tracking-widest shrink-0 transition-colors duration-300 ${
+              isOpen ? 'text-flipside-accent' : 'text-white/30'
+            }`}
+          >
+            Q{String(index + 1).padStart(2, '0')}
+          </span>
+          <span className="text-white font-semibold text-sm md:text-base">{question}</span>
         </span>
-        <motion.svg
-          width="20"
-          height="20"
-          viewBox="0 0 20 20"
-          fill="none"
-          className="shrink-0 text-flipside-chrome"
-          animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.3 }}
+        <motion.span
+          className={`relative shrink-0 w-6 h-6 flex items-center justify-center transition-colors duration-300 ${
+            isOpen ? 'text-flipside-hot-pink' : 'text-flipside-chrome'
+          }`}
+          animate={{ rotate: isOpen ? 135 : 0 }}
+          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
         >
-          <path
-            d="M5 8l5 5 5-5"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </motion.svg>
+          <span className="absolute w-4 h-0.5 bg-current rounded-full" />
+          <span className="absolute w-0.5 h-4 bg-current rounded-full" />
+        </motion.span>
       </button>
 
       <AnimatePresence initial={false}>
@@ -92,10 +94,10 @@ function FAQItem({
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             className="overflow-hidden"
           >
-            <div className="px-6 pb-5 text-flipside-text-secondary text-sm md:text-base leading-relaxed border-t border-flipside-surface-secondary/50 pt-4">
+            <div className="px-5 md:px-6 pb-5 pl-[60px] md:pl-[68px] text-flipside-text-secondary text-sm md:text-base leading-relaxed">
               {answer}
             </div>
           </motion.div>
@@ -111,22 +113,16 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section className="py-24 md:py-32 px-4 bg-flipside-bg" ref={ref}>
-      <div className="max-w-3xl mx-auto">
-        <motion.div
-          className="text-center mb-14"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-        >
-          <GradientText
-            as="h2"
-            variant="duality"
-            className="text-3xl md:text-5xl font-black"
-          >
-            Frequently Asked Questions
-          </GradientText>
-        </motion.div>
+    <section id="faq" className="relative py-24 md:py-32 px-4 bg-flipside-bg overflow-hidden" ref={ref}>
+      <div className="absolute -top-20 right-1/4 w-[420px] h-[420px] rounded-full bg-flipside-accent/6 blur-[140px]" />
+
+      <div className="relative max-w-3xl mx-auto">
+        <SectionHeading
+          kicker="transmission log"
+          title="Frequently Asked Questions"
+          holoWord="Questions"
+          isInView={isInView}
+        />
 
         <div className="space-y-3">
           {faqs.map((faq, index) => (
@@ -136,9 +132,7 @@ export default function FAQ() {
               answer={faq.answer}
               index={index}
               isOpen={openIndex === index}
-              onToggle={() =>
-                setOpenIndex(openIndex === index ? null : index)
-              }
+              onToggle={() => setOpenIndex(openIndex === index ? null : index)}
             />
           ))}
         </div>

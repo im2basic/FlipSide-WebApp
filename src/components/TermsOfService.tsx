@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-const EFFECTIVE_DATE = 'May 12, 2026'
+const EFFECTIVE_DATE = 'July 14, 2026'
 const CONTACT_EMAIL = 'support@flipside.app'
 
 const sections = [
@@ -218,13 +218,18 @@ export default function TermsOfService() {
               </div>
               <div className="p-4 rounded-lg bg-flipside-surface border border-white/5">
                 <h4 className="text-flipside-purple font-medium mb-1">
-                  Creator &mdash; $29.99/month (coming soon)
+                  Creator &mdash; $29.99/month or $199.99/year
                 </h4>
                 <p className="text-sm text-gray-400">
                   Everything in Premium plus creator tools, export capabilities, and API access.
                 </p>
               </div>
             </div>
+            <p className="text-sm text-flipside-text-secondary mb-6">
+              Subscription lengths are one month or one year as indicated. Exact prices, currency,
+              and any introductory offers are displayed in the app at the point of purchase and may
+              vary by region according to Apple&rsquo;s pricing matrix.
+            </p>
 
             <h3 className="text-white font-medium mb-2">4.2 Payment &amp; Billing</h3>
             <ul className="list-disc list-inside space-y-2 ml-2 mb-4">
@@ -258,18 +263,45 @@ export default function TermsOfService() {
               </li>
             </ul>
 
-            <h3 className="text-white font-medium mb-2">4.4 Free Trial</h3>
+            <h3 className="text-white font-medium mb-2">4.4 Free Tier &amp; Introductory Offers</h3>
             <p className="mb-4">
               New users receive 2 free debates with full fact-checking functionality. No credit card
-              or payment method is required for the free tier. If you subscribe and then cancel, you
-              will retain access to premium features until the end of your current billing period.
+              or payment method is required for the free tier. We may from time to time offer free
+              trials or introductory pricing for paid subscriptions; the terms of any such offer
+              (including trial length and post-trial price) are displayed at the point of purchase.
+              If you subscribe and then cancel, you will retain access to premium features until the
+              end of your current billing period.
             </p>
 
-            <h3 className="text-white font-medium mb-2">4.5 Refunds</h3>
-            <p>
+            <h3 className="text-white font-medium mb-2">4.5 Restore Purchases</h3>
+            <p className="mb-4">
+              If you reinstall the app or switch devices, you can restore your active subscription at
+              no additional charge using the &ldquo;Restore Purchases&rdquo; option in the
+              app&rsquo;s settings or on the paywall, while signed in with the same Apple ID used for
+              the original purchase.
+            </p>
+
+            <h3 className="text-white font-medium mb-2">4.6 Refunds</h3>
+            <p className="mb-4">
               All purchases are processed through Apple&rsquo;s App Store. Refund requests must be
               directed to Apple in accordance with Apple&rsquo;s refund policies. We do not have the
               ability to issue refunds for App Store purchases.
+            </p>
+
+            <h3 className="text-white font-medium mb-2">4.7 Apple Standard EULA</h3>
+            <p>
+              Your download and use of the app from the Apple App Store is also subject to
+              Apple&rsquo;s{' '}
+              <a
+                href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-flipside-accent hover:underline"
+              >
+                Licensed Application End User License Agreement
+              </a>
+              . In the event of a conflict between that agreement and these Terms regarding your use
+              of the Service, these Terms govern to the extent permitted.
             </p>
           </section>
 

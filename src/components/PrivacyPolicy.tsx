@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-const EFFECTIVE_DATE = 'May 12, 2026'
+const EFFECTIVE_DATE = 'July 14, 2026'
 const CONTACT_EMAIL = 'support@flipside.app'
 
 const sections = [
@@ -297,9 +297,9 @@ export default function PrivacyPolicy() {
               <div className="p-4 rounded-lg bg-flipside-surface border border-white/5">
                 <h3 className="text-flipside-accent font-medium mb-1">PostHog</h3>
                 <p className="text-sm">
-                  Collects anonymized usage analytics including feature usage, session data, and
-                  interaction patterns to help us understand how the Service is used and prioritize
-                  improvements. See{' '}
+                  Collects usage analytics including feature usage, session data, and interaction
+                  patterns, associated with your user ID, to help us understand how the Service is
+                  used and prioritize improvements. See{' '}
                   <a
                     href="https://posthog.com/privacy"
                     target="_blank"
@@ -435,7 +435,7 @@ export default function PrivacyPolicy() {
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 text-white">Usage analytics</td>
-                    <td className="py-3">Retained for up to 12 months, then deleted or anonymized.</td>
+                    <td className="py-3">Retained for up to 24 months, then deleted or anonymized.</td>
                   </tr>
                 </tbody>
               </table>
@@ -669,7 +669,8 @@ export default function PrivacyPolicy() {
             <p className="mb-3">
               Upon account deletion, we will permanently purge your personal data, including your
               account information, debate history, transcripts, and fact-check results, within{' '}
-              <strong className="text-white">14 days</strong>. Some anonymized, aggregated data (such
+              <strong className="text-white">30 days</strong>, except where retention is required by
+              law (such as subscription transaction records). Some anonymized, aggregated data (such
               as the RAG cache) may be retained as it cannot be linked back to you.
             </p>
             <p>

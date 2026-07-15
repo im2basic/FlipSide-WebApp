@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 
 const EFFECTIVE_DATE = 'July 14, 2026'
-const CONTACT_EMAIL = 'support@flipside.app'
+const CONTACT_EMAIL = 'flipsideapp1@gmail.com'
 
 const sections = [
   { id: 'acceptance', title: '1. Acceptance of Terms' },
